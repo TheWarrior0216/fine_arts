@@ -14,10 +14,12 @@ defineProps({art: Artwork})
 
 
 <template>
-<div class="card m-4">
-        <img class="card-img-top border" :src="art.imgUrl" alt="Title" />
-      </div>
-</template>
+
+  <div class="card m-4">
+    <img class="card-img-top border" :src="art.imgUrl" alt="Title" />
+  </div>
+
+  </template>
 
 
 <style lang="scss" scoped>

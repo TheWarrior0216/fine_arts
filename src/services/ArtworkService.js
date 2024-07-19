@@ -13,6 +13,22 @@ class ArtworkService {
     AppState.artwork = newData
     return newData
   }
+  async pageSwitch(pageNum) {
+    const response = await api.get(`/api/artworks/?page=${pageNum += 1}`)
+    AppState.page = pageNum
+    console.log(response.data)
+    const newData = response.data.artworks.map((artwork) => new Artwork(artwork))
+    console.log(newData)
+    AppState.artwork = newData
+  }
+  async pageSwitchDown(pageNum) {
+    const response = await api.get(`/api/artworks/?page=${pageNum -= 1}`)
+    AppState.page = pageNum
+    console.log(response.data)
+    const newData = response.data.artworks.map((artwork) => new Artwork(artwork))
+    console.log(newData)
+    AppState.artwork = newData
+  }
 
 }
 export const artworkService = new ArtworkService()

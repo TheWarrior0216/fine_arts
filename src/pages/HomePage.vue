@@ -4,6 +4,7 @@ import Pop from "../utils/Pop.js";
 import { artworkService } from "../services/ArtworkService.js";
 import { AppState } from "../AppState.js";
 import ArtworkTemp from "../components/ArtworkTemp.vue"
+import SwichPage from "../components/SwichPage.vue";
 
 const artwork = computed(()=> AppState.artwork)
 const pageNum = computed(()=> AppState.page)
@@ -25,15 +26,11 @@ async function getApi() {
 <template data-bs-theme="dark">
 
   <section class="container">
-  <div class="row">
-    <div v-for="art in artwork" :key="art.id" class="col-md-4">
+  <div class="row align-items-center">
+    <div v-for="art in artwork" :key="art.id" class="col-6 ">
       <ArtworkTemp :art = "art"/>
     </div>
-    <div class="d-flex justify-content-around">
-      <button class="btn rounded-pill btn-info px-5 mb-3 mdi mdi-arrow-left"> Previous Page</button>
-      <h2> {{ pageNum }}</h2>
-      <button class="btn rounded-pill btn-info px-5 mb-3 mdi mdi-arrow-right"> Next Page</button>
-    </div>
+    <SwichPage/>
   </div>
 </section>
 
